@@ -1,17 +1,25 @@
-//practice create simple counter programm with javascript
-let count = 0;
+// build a rolling dice with javascript
 
-document.getElementById("decreaseBtn").onclick = function(){
-  count -= 1;
-  document.getElementById('count-label').innerHTML = count
-}
+// let x = Math.floor(Math.random() * 6) + 1;
+// let y = Math.floor(Math.random() * 8) + 1;
+// let z = Math.floor(Math.random() * 6) + 1;
 
-document.getElementById("resetBtn").onclick = function(){
-  count = 0;
-  document.getElementById('count-label').innerHTML = count
-}
+// console.log(x);
+// console.log(y);
+// console.log(z);
 
-document.getElementById("increaseBtn").onclick = function(){
-  count += 1;
-  document.getElementById('count-label').innerHTML = count
-}
+
+//lets build it with html
+let x;
+let y;
+let z;
+document.getElementById("roll-Btn").onclick = function(){
+  x = Math.floor(Math.random() * 6) + 1;
+  y = Math.floor(Math.random() * 8) + 1;
+  z = Math.floor(Math.random() * 6) + 1;
+
+  
+  document.getElementById("xLabel").innerHTML = x;
+  document.getElementById("yLabel").innerHTML = y;
+  document.getElementById("zLabel").innerHTML = z;
+};
