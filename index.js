@@ -1,22 +1,35 @@
-//maths in javascript
-
-let x = 3.14;
-
-let y = 5;
-let z = 8;
-let maximum;
-let minimum;
-
-// x = Math.round(x);
-// x = Math.floor(x); //to round down
-// x = Math.ceil(x); //to round up
-
-// x = Math.pow(x, 3); // to find the rest to power
-// x = Math.sqrt(x, 3); // to find sqaure root
-// x = Math.abs(x, 3); // to find absolute number
-
-maximum = Math.max(x,y,z);
-minimum = Math.min(x,y,z);
+//practice with hypoternus of a right angle triangle
 
 
-console.log(minimum);
+//below is with window prompt
+// let a;
+// let b;
+// let c;
+
+// a = window.prompt("Enter Side A");
+// b = window.prompt("Enter Side B");
+
+// c = Math.pow(a, 2) + Math.pow(b, 2);
+
+// c = Math.sqrt(c);
+
+// //you can also put all c in one code
+// // c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+
+// console.log(c)
+
+
+
+// now with html input
+
+document.getElementById("button").onclick = function(){
+  a = document.getElementById("aside-textbox").value;
+  a = Number(a)
+
+  b = document.getElementById("bside-textbox").value;
+  b = Number(b)
+
+  c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+
+  document.getElementById("side-c").innerHTML = "Side C Is "+c;
+};
