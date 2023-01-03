@@ -1,28 +1,15 @@
 
-// let age = window.prompt('How old are you');
+const PI = 4.356798;
+let radius;
+let circumference;
 
-// console.log(typeof(age));
+radius = window.prompt("enter a radius");
+radius = Number(radius);
 
-// age = Number(age);
+// 
+circumference = 2 * PI * radius;
 
-// console.log(typeof(age));
-// age += 1;
+console.log(circumference);
 
-// console.log("You are "+age +" years old");
-
-
-let x;
-let y;
-let z;
-
-x = Number("2.14");
-y = String(x);
-z = Boolean("");
-a = Boolean('mike');
-b = Number("pizza");
-
-console.log(x, typeof(x))
-console.log(y, typeof(y))
-console.log(z, typeof(z))
-console.log(a, typeof(a))
-console.log(b, typeof(b))
+//const is a type of variable that can't be changed.
+//note that it's better to name a a const variable with capital letter
