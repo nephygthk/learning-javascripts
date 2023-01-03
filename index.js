@@ -1,15 +1,22 @@
+//maths in javascript
 
-const PI = 4.356798;
-let radius;
-let circumference;
+let x = 3.14;
 
-radius = window.prompt("enter a radius");
-radius = Number(radius);
+let y = 5;
+let z = 8;
+let maximum;
+let minimum;
 
-// 
-circumference = 2 * PI * radius;
+// x = Math.round(x);
+// x = Math.floor(x); //to round down
+// x = Math.ceil(x); //to round up
 
-console.log(circumference);
+// x = Math.pow(x, 3); // to find the rest to power
+// x = Math.sqrt(x, 3); // to find sqaure root
+// x = Math.abs(x, 3); // to find absolute number
 
-//const is a type of variable that can't be changed.
-//note that it's better to name a a const variable with capital letter
+maximum = Math.max(x,y,z);
+minimum = Math.min(x,y,z);
+
+
+console.log(minimum);
