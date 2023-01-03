@@ -1,8 +1,28 @@
 
-let username;
+// let age = window.prompt('How old are you');
 
-document.getElementById("my-button").onclick = function(){
-  username = document.getElementById('my-text').value;
-  console.log(username)
-  document.getElementById("my-label").innerHTML = "hello "+username;
-}
+// console.log(typeof(age));
+
+// age = Number(age);
+
+// console.log(typeof(age));
+// age += 1;
+
+// console.log("You are "+age +" years old");
+
+
+let x;
+let y;
+let z;
+
+x = Number("2.14");
+y = String(x);
+z = Boolean("");
+a = Boolean('mike');
+b = Number("pizza");
+
+console.log(x, typeof(x))
+console.log(y, typeof(y))
+console.log(z, typeof(z))
+console.log(a, typeof(a))
+console.log(b, typeof(b))
