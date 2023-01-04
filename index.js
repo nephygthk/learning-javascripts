@@ -1,16 +1,27 @@
-//method chaining: calling one method after another in one contineous line of code.
+//if statement: a basic form of decision making, if a condition is true, do soemthing, if not then do another thing.
 
+// let age = -1;
 
-let userName = "Nephyg";
+// if(age >= 18){
+//   console.log("You are an adult");
+// }
+// else if(age < 0){
+//   console.log("You have not been born yet")
+// }
+// else if(age < 4){
+//   console.log("You are still a minor")
+// }
+// else{
+//   console.log("You are a child")
+// }
 
-// let letter = userName.charAt(0);
-// letter.toUpperCase();
+//to check bollean value with if statement
 
-// console.log(letter)
+let myStudent = false;
 
-//doing this with method chaining
-
-let letter = userName.charAt(0).toUpperCase().trim();
-userName = userName.replaceAll("e", letter);
-
-console.log(userName)
+if(myStudent){
+  console.log("You are my sudent")
+}
+else{
+  console.log("You are not my student")
+}
