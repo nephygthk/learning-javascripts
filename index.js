@@ -1,20 +1,16 @@
-// slice method: extracts a section of a string and returns it as a new string, without modifying the original string.
-
-let fullName = "Demian Chidi";
-let firstName;
-let lastName;
+//method chaining: calling one method after another in one contineous line of code.
 
 
-// firstName = fullName.slice(0, 6);
-// lastName = fullName.slice(7);
+let userName = "Nephyg";
 
-//we can do this same thing with indexof
+// let letter = userName.charAt(0);
+// letter.toUpperCase();
 
-lastName = fullName.slice(fullName.indexOf(" ")+1);
+// console.log(letter)
 
-firstName = fullName.slice(0, fullName.indexOf(" "));
+//doing this with method chaining
 
+let letter = userName.charAt(0).toUpperCase().trim();
+userName = userName.replaceAll("e", letter);
 
-
-console.log(firstName);
-console.log(lastName);
+console.log(userName)
