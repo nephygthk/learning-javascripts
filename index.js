@@ -1,31 +1,13 @@
-// && which is AND also || which is OR: Gives us the ability to check for more than one condition concurently
+// Not logical operator which is represnted by !, it is typically use to reverse a condition in Boolean value.
 
-//&& (both conditions must be true)
-// || (either condition can be true)
+let temp = 17;
+let sunny = true
 
-
-let temp = 31;
-
-// if(temp > 0 && temp < 30){
-//   console.log("The weather is very good")
-// }
-// else{
-//   console.log("The weather is bad")
-// }
-
-
-// if(temp <= 0 || temp >= 30){
-//   console.log("The weather is bad")
-// }
-// else{
-//   console.log("The weather is good")
-// }
-
-let sunny = false;
-
-if(temp > 0 && temp < 30 && sunny){
-  console.log("The weather is good")
+if(sunny){
+  console.log("It's cold outside")
 }
 else{
-  console.log("The weather is bad")
+  console.log("it's sunny outside")
 }
+
+//you don't need to put the statement in brackect !(statement) when dealing with boolean values
