@@ -1,27 +1,31 @@
-//if statement: a basic form of decision making, if a condition is true, do soemthing, if not then do another thing.
+//checked property in javascript
 
-// let age = -1;
+//checked property is mostly used for radio buttons or check button, it alwasy returns true or false
 
-// if(age >= 18){
-//   console.log("You are an adult");
-// }
-// else if(age < 0){
-//   console.log("You have not been born yet")
-// }
-// else if(age < 4){
-//   console.log("You are still a minor")
-// }
-// else{
-//   console.log("You are a child")
-// }
 
-//to check bollean value with if statement
+document.getElementById("myButton").onclick = function(){
+  const myCheckbox = document.getElementById("myCheckbox");
+  const visacard = document.getElementById("visaBtn");
+  const mastercard = document.getElementById("masterBtn");
+  const paypal = document.getElementById("paypalBtn");
 
-let myStudent = false;
+  if(myCheckbox.checked){
+    console.log("you are subscribed")
+  }
+  else{
+    console.log("you are not subscribed.")
+  }
 
-if(myStudent){
-  console.log("You are my sudent")
-}
-else{
-  console.log("You are not my student")
+  if(visacard.checked){
+    console.log("You are paying with visa card")
+  }
+  else if(mastercard.checked){
+    console.log("You are paying with master card")
+  }
+  else if(paypal.checked){
+    console.log("You are paying with paypal")
+  }
+  else{
+    console.log("You must select a payment method")
+  }
 }
