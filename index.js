@@ -1,50 +1,31 @@
-// switch: statement that examines a value  for a match against many case clauses. it is more efficient than using many else if statements. it is important to use it when you see yourself using many else if statements
+// && which is AND also || which is OR: Gives us the ability to check for more than one condition concurently
+
+//&& (both conditions must be true)
+// || (either condition can be true)
 
 
-// let grade = "F";
+let temp = 31;
 
-// switch(grade){
-//   case "A":
-//     console.log("You did amazing")
-//     break;
-//   case "B":
-//     console.log("You did very good")
-//     break;
-//   case "C":
-//     console.log("You did good")
-//     break;
-//   case "D":
-//     console.log("You barely made it")
-//     break;
-//   case "F":
-//     console.log("You Failed")
-//     break;
-//   default:
-//     console.log(grade, "is either not a letter or not a grading apparatus")
+// if(temp > 0 && temp < 30){
+//   console.log("The weather is very good")
+// }
+// else{
+//   console.log("The weather is bad")
 // }
 
 
+// if(temp <= 0 || temp >= 30){
+//   console.log("The weather is bad")
+// }
+// else{
+//   console.log("The weather is good")
+// }
 
-//matching the grade with number for true or false answer
-let grade = 5;
+let sunny = false;
 
-
-switch(true){
-  case grade >= 90:
-    console.log("You did amazing")
-    break;
-  case grade >= 80:
-    console.log("You did very good")
-    break;
-  case grade >= 70:
-    console.log("You did good")
-    break;
-  case grade > 63:
-    console.log("You barely made it")
-    break;
-  case grade < 60:
-    console.log("You Failed")
-    break;
-  default:
-    console.log(grade, "is either not a letter or not a grading apparatus")
+if(temp > 0 && temp < 30 && sunny){
+  console.log("The weather is good")
+}
+else{
+  console.log("The weather is bad")
 }
