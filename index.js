@@ -1,18 +1,6 @@
-// do while loop in javascript, its the same like while loop but it does something first before getting into while loop. with do while loop, you check the condition last instead of checking it first.
+//For loop: repeat some codes a certian amount of times. in for loops you assign a variable, you check condition and you execute purpose of code in the bracket of the for loop. many programmers prefer to use "i" as a variable name for for loop.
 
-// let userName = "";
 
-// while(userName == ""){
-//   userName = window.prompt("Enter your name")
-// }
-
-// console.log("Hello",userName);
-
-// the same code in do while loop
-let userName;
-
-do{
-  userName = window.prompt("Enter your name")
-}while(userName == "")
-
-console.log("Hello",userName);
+for(let i = -1; i <= 10; i+=1){
+  console.log(i)
+}
