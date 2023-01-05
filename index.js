@@ -1,12 +1,18 @@
-// while loop: repeats some code while some condition is true, It can run infinite if the condition continues being true.
+// do while loop in javascript, its the same like while loop but it does something first before getting into while loop. with do while loop, you check the condition last instead of checking it first.
 
-//remember to always add a breaking point for your loop else it will end up running infinite
+// let userName = "";
 
+// while(userName == ""){
+//   userName = window.prompt("Enter your name")
+// }
 
-let userName = "";
+// console.log("Hello",userName);
 
-while(userName == "" || userName == null){
-  userName = window.prompt("Enter Your Username");
-}
+// the same code in do while loop
+let userName;
 
-console.log("Hello ", userName)
+do{
+  userName = window.prompt("Enter your name")
+}while(userName == "")
+
+console.log("Hello",userName);
