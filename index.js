@@ -1,13 +1,12 @@
-// Not logical operator which is represnted by !, it is typically use to reverse a condition in Boolean value.
+// while loop: repeats some code while some condition is true, It can run infinite if the condition continues being true.
 
-let temp = 17;
-let sunny = true
+//remember to always add a breaking point for your loop else it will end up running infinite
 
-if(sunny){
-  console.log("It's cold outside")
+
+let userName = "";
+
+while(userName == "" || userName == null){
+  userName = window.prompt("Enter Your Username");
 }
-else{
-  console.log("it's sunny outside")
-}
 
-//you don't need to put the statement in brackect !(statement) when dealing with boolean values
+console.log("Hello ", userName)
