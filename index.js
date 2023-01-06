@@ -1,18 +1,40 @@
-//Return statement: Returns a value back to the place where you invokec a function. When you call a function, you can return some information.
+// ternary operator: it's a short cut for if and else statement
+
+//takes 3 operands,
+// 1 a condition with ?
+// 2 expression if true
+// 3 expression if false
+
+// e.g ====>> condition ? expressioniftrue : expressioniffalse
+
+// let adult = checkAge(11);
+
+// console.log(adult);
+
+// function checkAge(age){
+//   if(age >= 19){
+//     return true;
+//   }
+//   else{
+//     return false;
+//   }
+// }
 
 
-let area;
-let width;
-let height;
+// writing it with ternary operator
 
-width = window.prompt("Enter width");
-height = window.prompt("Enter height");
+// let adult = checkAge(11);
 
-area = getArea(width, height);
+// console.log(adult);
 
-console.log(area)
+// function checkAge(age){
+//   return age >= 18 ? true : false
+// }
 
-function getArea(){
-  // result = ;
-  return width * height;
+
+//another exampl
+checkWin(false)
+
+function checkWin(win){
+  win ? console.log("You are a winner") : console.log("You are a looser");
 }
