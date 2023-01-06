@@ -1,11 +1,18 @@
-// nested loop: it's a loop inside another loop. it is advicable to change the name of the counter variables when you are nesting a loop
+//function: Define code ones and use it many times. to perform the code, you call the function name. You use function when you know you are repeating a code
 
-let symbol = window.prompt("Enter a symbol");
-let rows = window.prompt("Enter # of rows");
-let column = window.prompt("enter # columns");
-for(let i = 1; i <= rows; i+=1){
-  for(let j = 1; j <= column; j+=1){
-    document.getElementById("myRectangle").innerHTML += symbol;
-  }
-  document.getElementById("myRectangle").innerHTML += "<br>";
+
+
+function startPrograme(){
+  let name = "neph";
+  happyBirthday(name);
+}
+
+
+startPrograme();
+
+function happyBirthday(a){
+  console.log("happy birthday to you");
+  console.log("happy birthday to you");
+  console.log("happy birthday to you", a);
+  console.log("happy birthday to you");
 }
