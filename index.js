@@ -1,18 +1,18 @@
-//function: Define code ones and use it many times. to perform the code, you call the function name. You use function when you know you are repeating a code
+//Return statement: Returns a value back to the place where you invokec a function. When you call a function, you can return some information.
 
 
+let area;
+let width;
+let height;
 
-function startPrograme(){
-  let name = "neph";
-  happyBirthday(name);
-}
+width = window.prompt("Enter width");
+height = window.prompt("Enter height");
 
+area = getArea(width, height);
 
-startPrograme();
+console.log(area)
 
-function happyBirthday(a){
-  console.log("happy birthday to you");
-  console.log("happy birthday to you");
-  console.log("happy birthday to you", a);
-  console.log("happy birthday to you");
+function getArea(){
+  // result = ;
+  return width * height;
 }
