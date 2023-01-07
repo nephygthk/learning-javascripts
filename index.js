@@ -1,27 +1,31 @@
-// Template reterals: they are delimited with (`)  instead of double or single quotes. they allows embedded variables and expressions. it is like f string in python but you use ${} for the variable and change the "" to ``. it is really helpful when you want to update an html element with some text.
+// toLocaleString(): returns a string with a language sensitive representation of this number. it's fantastic if you need to format a number as some currency.
+
+//number.toLocaleString(local, {options});
+
+//locale: specify that language (undefined = default set in your browser)
+
+//options: object with formating options
 
 
-let userName = "Nephyg";
-let items = 3;
-let total = 78;
+let myNum = 100;
 
-// console.log("Hello", userName);
-// console.log("you bought",items, "items from us.");
-// console.log("your total prize is $",total );
+// myNum = myNum.toLocaleString("en-US"); //usa english
+// myNum = myNum.toLocaleString("hi-IN"); //hindi india
+// myNum = myNum.toLocaleString("de-DE");// standard german
 
-//to do this same thing with template reterals
+//trying it with currency
 
-// console.log(`hello ${userName}`);
-// console.log(`You bought ${items} items from us.`);
-// console.log(`your total prize is $${total}`);
+// let myCurrency = "EUR"
+// myNum = myNum.toLocaleString("en-US", {style: "currency", currency : "USD"});
+// myNum = myNum.toLocaleString("hi-IN", {style:"currency", currency:"INR"});
+// myNum = myNum.toLocaleString("de-DE", {style:"currency", currency:"EUR"});
 
-// another example with long text is:
+//trying it with percents
+// myNum = myNum.toLocaleString(undefined, {style: "percent"})
 
-let text = `hello ${userName}<br>
-You bought ${items} items from us.<br>
-your total prize is $${total}`
+//trying with unit of measurement. make sure the unit is lower case
+myNum = myNum.toLocaleString(undefined, {style: "unit", unit:"mile"})
 
-//you can add it line break too
 
-// console.log("text")
-document.getElementById("myLabel").innerHTML = text;
+
+console.log(myNum);
