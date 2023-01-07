@@ -1,31 +1,21 @@
-// toLocaleString(): returns a string with a language sensitive representation of this number. it's fantastic if you need to format a number as some currency.
-
-//number.toLocaleString(local, {options});
-
-//locale: specify that language (undefined = default set in your browser)
-
-//options: object with formating options
+// create a basic number guessing game in javscript
 
 
-let myNum = 100;
+const answer = Math.floor(Math.random() * 10 + 1);
 
-// myNum = myNum.toLocaleString("en-US"); //usa english
-// myNum = myNum.toLocaleString("hi-IN"); //hindi india
-// myNum = myNum.toLocaleString("de-DE");// standard german
+let guesses = 0;
 
-//trying it with currency
+document.getElementById("myButton").onclick = function(){
+  let guess = document.getElementById("myNum").value;
+  guesses+=1;
 
-// let myCurrency = "EUR"
-// myNum = myNum.toLocaleString("en-US", {style: "currency", currency : "USD"});
-// myNum = myNum.toLocaleString("hi-IN", {style:"currency", currency:"INR"});
-// myNum = myNum.toLocaleString("de-DE", {style:"currency", currency:"EUR"});
-
-//trying it with percents
-// myNum = myNum.toLocaleString(undefined, {style: "percent"})
-
-//trying with unit of measurement. make sure the unit is lower case
-myNum = myNum.toLocaleString(undefined, {style: "unit", unit:"mile"})
-
-
-
-console.log(myNum);
+  if(guess == answer){
+    alert(`${guess} is the right answer`);
+  }
+  else if(guess < answer){
+    alert("Too small");
+  }
+  else{
+    alert("Too large")
+  }
+}
