@@ -1,27 +1,21 @@
-//array.filter(): creates a new array with all elements that pass the test provided by a function.
+// how to sort an array of numbers in javascript
 
-// let ages = [12,45,17,18,22,67,34,11,7,90];
-// let adults = ages.filter(checkAge);
+let grades = [100, 70,50,80,65];
 
-// adults.forEach(print);
+grades = grades.sort(ascending);
+console.log(grades); //prints an array
 
-
-// function checkAge(element){
-//   return element >= 18
-// }
-
-// function print(element){
-//   console.log(element);
-// }
+grades.forEach(print);//prints individual elements
 
 
-//array.reduce(): reduces an array to a single value. a very good use of this method would be to sum up all the values of an array like items in a shopping cart
-
-let prices = [10,7,8,15,35,47,39];
-let total = prices.reduce(checkOut);
-console.log(`Your total prize is $${total}`)
-
-function checkOut(total, element){
-  return total + element;
+function descending(x,y){
+  return y - x;
 }
 
+function ascending(x,y){
+  return x - y;
+}
+
+function print(element){
+  console.log(element);
+}
