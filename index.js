@@ -1,12 +1,18 @@
-//array.forEach(): executes a provided callback function once for each array elements.for for each ,method three arguments are provided. an element, and index and an array. we don't necssary needs to provide all of it.
+//array.map(): executes a provided callback function once for each array elements and creates a new array.
 
-let students = ["mike","smigo","zeal"];
+let numbers = [1,2,3,4,5,6]
 
-students.forEach(capitalize);//make sure to not add () after the function inside the foreach bracket.
-students.forEach(print);
+let squares = numbers.map(square);
+let cubes = numbers.map(cube);
+// cubes.forEach(print);
+squares.forEach(print);
 
-function capitalize(element, index, array){
-  array[index] = element[0].toUpperCase() + element.substring(1);
+function square(element){
+  return Math.pow(element, 2);
+}
+
+function cube(element){
+  return Math.pow(element, 3);
 }
 
 function print(element){
