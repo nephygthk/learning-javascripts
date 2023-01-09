@@ -1,21 +1,20 @@
-// array = think of it as a variable that can store multiple values. to store values in array variable, use [] and seprate each value with a coma , each value in an array is also known as an element, and you can access those elements with their index numbers starting from 0. e.g arrayname[0]; to access first element of the array. array can accept strings and intergers at the same time
-//you can also update and change the elements of an array.
+// how to loop through an array in javascript
 
-let fruits = ["Orange", "Banana","Mango"];
+let prices = [100, 200, 300, 500, 700, 900, 2000];
 
-//to change or update an element of an array
-fruits[1] = 'Coconut';
+//iterating with for loop
 
-//to add a new element to array use the push method.
-fruits.push("Lemon")
-fruits.pop(); //removes last element
-fruits.unshift("Apple");//to add element at the begining of an array.
-fruits.shift(); //removes element from begining
+// for(let i=0; i<prices.length; i++){
+//   console.log(prices[i]);
+// }
 
-let length = fruits.length; // to get the number of elements in an array. 
-let index = fruits.indexOf("Orange");
+//iterating with for loop but backwards
+// for(let i=prices.length - 1; i>=0; i--){
+//   console.log(prices[i]);
+// }
 
-console.log(index);
 
-console.log(fruits[1]);
-console.log(fruits);
+//to iterate with for of statement. this is like for price in prices in django python
+for(let price of prices){
+  console.log(price)
+}
