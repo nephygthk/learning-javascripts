@@ -1,21 +1,32 @@
-// create a basic number guessing game in javscript
+//practice to convert temprature
 
+//to get the ° in pc, hold the alt and on the num pad type 0176 to get it.
 
-const answer = Math.floor(Math.random() * 10 + 1);
+document.getElementById("submitButton").onclick = function(){
+  let temp = Number(document.getElementById("myTextbox").value);
 
-let guesses = 0;
+  if(document.getElementById("cButton").checked){
+    // temp = Number(document.getElementById("myTextbox").value);
+    temp = toCelsius(temp);
+    document.getElementById("tempLabel").innerHTML = temp+"°C";
 
-document.getElementById("myButton").onclick = function(){
-  let guess = document.getElementById("myNum").value;
-  guesses+=1;
-
-  if(guess == answer){
-    alert(`${guess} is the right answer`);
   }
-  else if(guess < answer){
-    alert("Too small");
+  else if(document.getElementById("fButton").checked){
+    // temp = Number(document.getElementById("myTextbox").value);
+    temp = toFerinheit(temp);
+    document.getElementById("tempLabel").innerHTML = temp+"°F";
   }
   else{
-    alert("Too large")
+    document.getElementById("tempLabel").innerHTML = "Select a temperature";
   }
+}
+
+
+
+function toCelsius(temp){
+  return (temp -32) * (5/9);
+}
+
+function toFerinheit(temp){
+  return temp * 9/5 + 32;
 }

@@ -10,13 +10,21 @@
 </head>
 <body>
 
-  <h1>Number Guessing Game</h1>
-  <p>Pick a number between 1 -10</p>
+  <label>Enter a tempreature:</label><br>
+  <input type="text" id="myTextbox"><br>
 
-  <label for="myNum">Put a number</label>
-  <input type="text" id="myNum"><br>
+  <label>Convert to:</label><br>
+  <input type="radio" id="cButton" name="unit">
+  <label for="cButton">Celsius</label><br>
 
-  <button id="myButton">Submit</button>
+  <input type="radio" id="fButton" name="unit">
+  <label for="cButton">Ferinheit</label><br>
+
+  <button type="submit" id="submitButton">Submit</button><br>
+
+  <label id="tempLabel"></label>
+
+
 
   <script src="index.js"></script>
 </body>
