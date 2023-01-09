@@ -1,23 +1,27 @@
-//spread operator ... : allows an iterable such as an array or strings to be expanded in places where zero or more arguments are expected.
-//(unpacks the element) it is like * ** in python
-
-// let numbers = [1,2,3,4,5,6,7,8,9];
-
-// console.log(...numbers);
-
-// how can this be useful. eg below
-
-// let numbers = [1,2,3,4,5,6,7,8,9];
-
-// let maximum = Math.max(...numbers); // without the three dots it can not be abble to unpack the array to get the numbers and check for maximum
-// console.log(maximum);
+// rest parameters ...: it represents and indefinite number of parameters. this is closer to *args and **Kwargs in python. you use it when you don't know how many arguments user will put in. 
+//(packs arguments into an array)
 
 
-// another way to use it is when you want to merge two array list together. eg
 
-let class1 = ["mike","smigo","mikilo"];
-let class2 = ["nephy","zeal","mikipiano"];
 
-// class1.push(class2);// this adds it as an array
-class1.push(...class2);// this unpacks it before adding the individual elements
-console.log(...class1);
+let a = 1;
+let b = 2;
+let c = 3;
+let d = 4;
+
+// console.log(sumTotal(a,b,c,d));
+
+// function sumTotal(a,b){
+//   return a + b
+// }
+
+//with rest parameters. with this it doesn't matter how many arguments is added on the fuction. 
+console.log(sumTotal(a,b,c,d));
+
+function sumTotal(...numbers){
+  let total = 0;
+  for(let number of numbers){
+    total += number;
+  }
+  return total
+}
