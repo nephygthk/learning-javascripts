@@ -1,32 +1,14 @@
-// callback: it is a function passed as an argument to another function. using call back is a popular programming technique because it ensures that a function is not going to run before a task is completed.
+//array.forEach(): executes a provided callback function once for each array elements.for for each ,method three arguments are provided. an element, and index and an array. we don't necssary needs to provide all of it.
 
-//helps us develope asynchronous code.
-//(when one function has to wait for another function)
-//it helps us avoid errors and pottential problems
-//Ex. wait for a file to load
+let students = ["mike","smigo","zeal"];
 
-let solve = sum(2,6,displayConsole);
+students.forEach(capitalize);//make sure to not add () after the function inside the foreach bracket.
+students.forEach(print);
 
-// displayDom(solve);
-
-// function sum(a,b){
-//   let result = a + b;
-//   return result
-// }
-
-
-
-//doing this with callback. rmemebr to not add () in the parameters arguments
-function sum(a,b, halla){
-  let result = a + b;
-  halla(result);
+function capitalize(element, index, array){
+  array[index] = element[0].toUpperCase() + element.substring(1);
 }
 
-function displayDom(output){
-  document.getElementById("myLabel").innerHTML = output
-}
-
-
-function displayConsole(output){
-  console.log(output);
+function print(element){
+  console.log(element);
 }
