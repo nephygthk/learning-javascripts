@@ -1,20 +1,27 @@
-//array.map(): executes a provided callback function once for each array elements and creates a new array.
+//array.filter(): creates a new array with all elements that pass the test provided by a function.
 
-let numbers = [1,2,3,4,5,6]
+// let ages = [12,45,17,18,22,67,34,11,7,90];
+// let adults = ages.filter(checkAge);
 
-let squares = numbers.map(square);
-let cubes = numbers.map(cube);
-// cubes.forEach(print);
-squares.forEach(print);
+// adults.forEach(print);
 
-function square(element){
-  return Math.pow(element, 2);
+
+// function checkAge(element){
+//   return element >= 18
+// }
+
+// function print(element){
+//   console.log(element);
+// }
+
+
+//array.reduce(): reduces an array to a single value. a very good use of this method would be to sum up all the values of an array like items in a shopping cart
+
+let prices = [10,7,8,15,35,47,39];
+let total = prices.reduce(checkOut);
+console.log(`Your total prize is $${total}`)
+
+function checkOut(total, element){
+  return total + element;
 }
 
-function cube(element){
-  return Math.pow(element, 3);
-}
-
-function print(element){
-  console.log(element);
-}
