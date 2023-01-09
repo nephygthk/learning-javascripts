@@ -1,18 +1,23 @@
-// 2d arrays also known as multi dimensional arrays: it is an array of arrays. you access or iterate over a 2d arrays with a nested loop
+//spread operator ... : allows an iterable such as an array or strings to be expanded in places where zero or more arguments are expected.
+//(unpacks the element) it is like * ** in python
 
-let fruits = ["Orange","Banana","Apple"];
-let vegetables = ["carrots", "onions","potato"];
-let meats = ["fish","beef","chicken"];
+// let numbers = [1,2,3,4,5,6,7,8,9];
 
-let groceryList = [fruits,vegetables,meats];
+// console.log(...numbers);
 
-//to replace things in your arrays inside of the array
+// how can this be useful. eg below
 
-groceryList[0][1] = "Mango";
-console.log(groceryList[1][2])
+// let numbers = [1,2,3,4,5,6,7,8,9];
 
-// for(let list of groceryList){
-//   for(let food of list){
-//     console.log(food);
-//   }
-// }
+// let maximum = Math.max(...numbers); // without the three dots it can not be abble to unpack the array to get the numbers and check for maximum
+// console.log(maximum);
+
+
+// another way to use it is when you want to merge two array list together. eg
+
+let class1 = ["mike","smigo","mikilo"];
+let class2 = ["nephy","zeal","mikipiano"];
+
+// class1.push(class2);// this adds it as an array
+class1.push(...class2);// this unpacks it before adding the individual elements
+console.log(...class1);
