@@ -1,11 +1,18 @@
-// how to sort an array of strings in javascript
+// 2d arrays also known as multi dimensional arrays: it is an array of arrays. you access or iterate over a 2d arrays with a nested loop
 
-let fruits = ["Orange","Apple","Mango","Banana","Kiwi"];
+let fruits = ["Orange","Banana","Apple"];
+let vegetables = ["carrots", "onions","potato"];
+let meats = ["fish","beef","chicken"];
 
-// fruits = fruits.sort();// to sort it alphabetically
+let groceryList = [fruits,vegetables,meats];
 
-fruits = fruits.sort().reverse();//reverse sorting
+//to replace things in your arrays inside of the array
 
-for(let fruit of fruits){
-  console.log(fruit);
-}
+groceryList[0][1] = "Mango";
+console.log(groceryList[1][2])
+
+// for(let list of groceryList){
+//   for(let food of list){
+//     console.log(food);
+//   }
+// }
