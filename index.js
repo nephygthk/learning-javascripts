@@ -1,27 +1,32 @@
-// rest parameters ...: it represents and indefinite number of parameters. this is closer to *args and **Kwargs in python. you use it when you don't know how many arguments user will put in. 
-//(packs arguments into an array)
+// callback: it is a function passed as an argument to another function. using call back is a popular programming technique because it ensures that a function is not going to run before a task is completed.
 
+//helps us develope asynchronous code.
+//(when one function has to wait for another function)
+//it helps us avoid errors and pottential problems
+//Ex. wait for a file to load
 
+let solve = sum(2,6,displayConsole);
 
+// displayDom(solve);
 
-let a = 1;
-let b = 2;
-let c = 3;
-let d = 4;
-
-// console.log(sumTotal(a,b,c,d));
-
-// function sumTotal(a,b){
-//   return a + b
+// function sum(a,b){
+//   let result = a + b;
+//   return result
 // }
 
-//with rest parameters. with this it doesn't matter how many arguments is added on the fuction. 
-console.log(sumTotal(a,b,c,d));
 
-function sumTotal(...numbers){
-  let total = 0;
-  for(let number of numbers){
-    total += number;
-  }
-  return total
+
+//doing this with callback. rmemebr to not add () in the parameters arguments
+function sum(a,b, halla){
+  let result = a + b;
+  halla(result);
+}
+
+function displayDom(output){
+  document.getElementById("myLabel").innerHTML = output
+}
+
+
+function displayConsole(output){
+  console.log(output);
 }
