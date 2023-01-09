@@ -1,32 +1,21 @@
-//practice to convert temprature
+// array = think of it as a variable that can store multiple values. to store values in array variable, use [] and seprate each value with a coma , each value in an array is also known as an element, and you can access those elements with their index numbers starting from 0. e.g arrayname[0]; to access first element of the array. array can accept strings and intergers at the same time
+//you can also update and change the elements of an array.
 
-//to get the ° in pc, hold the alt and on the num pad type 0176 to get it.
+let fruits = ["Orange", "Banana","Mango"];
 
-document.getElementById("submitButton").onclick = function(){
-  let temp = Number(document.getElementById("myTextbox").value);
+//to change or update an element of an array
+fruits[1] = 'Coconut';
 
-  if(document.getElementById("cButton").checked){
-    // temp = Number(document.getElementById("myTextbox").value);
-    temp = toCelsius(temp);
-    document.getElementById("tempLabel").innerHTML = temp+"°C";
+//to add a new element to array use the push method.
+fruits.push("Lemon")
+fruits.pop(); //removes last element
+fruits.unshift("Apple");//to add element at the begining of an array.
+fruits.shift(); //removes element from begining
 
-  }
-  else if(document.getElementById("fButton").checked){
-    // temp = Number(document.getElementById("myTextbox").value);
-    temp = toFerinheit(temp);
-    document.getElementById("tempLabel").innerHTML = temp+"°F";
-  }
-  else{
-    document.getElementById("tempLabel").innerHTML = "Select a temperature";
-  }
-}
+let length = fruits.length; // to get the number of elements in an array. 
+let index = fruits.indexOf("Orange");
 
+console.log(index);
 
-
-function toCelsius(temp){
-  return (temp -32) * (5/9);
-}
-
-function toFerinheit(temp){
-  return temp * 9/5 + 32;
-}
+console.log(fruits[1]);
+console.log(fruits);
