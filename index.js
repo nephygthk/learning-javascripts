@@ -1,27 +1,30 @@
-//Class: it's a blueprint for creating objects
-//       define what properties and methods they have
-//       use a constructor for unique properties
+// constructors: it's a special method of a class, it accepts argumemts and assignes properties
 
-class Player{
-  score = 0;
+class Student{
 
-  pause(){
-    console.log("player is paused");
-  }// when you declare a method in a class, you don't need the function keyword.
+  constructor(name, age, gpa){
+    this.name = name;
+    this.age = age;
+    this.gpa = gpa;
+  }
 
-  exit(){
-    console.log("You exited the game");
+  study(){
+    console.log(`${this.name} is studying`);
   }
 }
 
+// const student1 = new Student();
 
-//to instantiate this class while creating an object
+// student1.name = "nephyg";
+const student1 = new Student("Nephyg", 25, 3.6);
+const student2 = new Student("Mike", 35, 3.1);
+const student3 = new Student("Zeal", 28, 2.6);
 
-const player1 = new Player();
-const player2 = new Player();
-player1.score += 1
+console.log(student1.age);
+console.log(student2.age);
+console.log(student3.age);
 
-console.log(player1.score);
-console.log(player2.score);
-player1.pause();
-player2.exit();
+
+student1.study();
+student2.study();
+student3.study();
