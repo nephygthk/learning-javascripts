@@ -1,35 +1,27 @@
-//this: reference to a particular object.
-//      the object depends on the immediate context , it's more like self in python
+//Class: it's a blueprint for creating objects
+//       define what properties and methods they have
+//       use a constructor for unique properties
 
+class Player{
+  score = 0;
 
+  pause(){
+    console.log("player is paused");
+  }// when you declare a method in a class, you don't need the function keyword.
 
-const car1 = {
-  model : "Mustang",
-  color : "red",
-  year : 1998,
-
-  // drive : function(){
-  //   console.log(`You just drive the ${model}`)
-  // }
-  drive : function(){
-    console.log(`You just drive the ${this.model}`)
+  exit(){
+    console.log("You exited the game");
   }
-
 }
 
-const car2 = {
-  model : "Camry",
-  color : "silver",
-  year : 2009,
 
-  // drive : function(){
-  //   console.log(`You just drive the ${model}`)
-  // }
-  drive : function(){
-    console.log(`You just drive the ${this.model}`)// "this" is like calling the name of the object before the model name. car2.model is the same with this.model
-  }
+//to instantiate this class while creating an object
 
-}
+const player1 = new Player();
+const player2 = new Player();
+player1.score += 1
 
-car1.drive();
-car2.drive();
+console.log(player1.score);
+console.log(player2.score);
+player1.pause();
+player2.exit();
