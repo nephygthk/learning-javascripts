@@ -1,43 +1,53 @@
-// map: it's an object that holds key value pairs of any data type. 
-
-const store = new Map([
-  ["t-shits", 20],
-  ["socks", 10],
-  ["hoodie", 40],
-  ["shorts", 70],
-  ["underwear", 60],
-]);
-
-store.forEach((value, key) => console.log(`${key} $${value}`));
+//Object: an object is a group of properties and methods.
+//properties = what an object has
+//methods = what an object can do
+//use . to acess properties/methods
 
 
 
-//doing it with normal function my own doing
-// store.forEach(displayStore);
+const car = {
+  model : "Mustang",
+  color : "red",
+  year : 1998,
 
-// function displayStore(value, key){
-  
-//   return console.log(`${key} $${value}`);
-// }
+  drive : function(){
+    console.log("You just drive the car")
+  },
 
-//how to get items from the store Map with get() method
+  brake : function(){
+    console.log("You just applied brake")
+  }//make sure you don't have a coma at the end
+}
 
-let shoppingCart = 0;
+const car2 = {
+  model : "Camry",
+  color : "silver",
+  year : 2009,
 
-store.get();//to get item from the store map
-store.set();//to add item to the store map
-store.delete()//to delete item from the store map
-store.has(""); // to check if store has an item or not. always returns a boolean value
-store.size; //to check number of item inside the store
+  drive : function(){
+    console.log("You just drive the car")
+  },
+
+  brake : function(){
+    console.log("You just applied brake")
+  }//make sure you don't have a coma at the end
+}
+
+// to acees the car properties
+
+// console.log(car.model);
+// console.log(car.year);
+// console.log(car.color);
+
+console.log(car2.model);
+console.log(car2.year);
+console.log(car2.color);
 
 
+//to acces the properties of the object class
 
-shoppingCart += store.get("socks");
-shoppingCart += store.get("underwear");
-shoppingCart += store.get("shorts");
-console.log(shoppingCart);
+// car.drive();
+// car.brake();
 
-//how to use the set() method
-
-
-
+car2.drive();
+car2.brake();
