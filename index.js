@@ -1,38 +1,43 @@
-// nested functions = A function inside of another function.
-//outer function have access to inner function
-//inner functions are hidden from outside the outer function.
-// used in closures (future video topic)
-//it adds some data security
+// map: it's an object that holds key value pairs of any data type. 
+
+const store = new Map([
+  ["t-shits", 20],
+  ["socks", 10],
+  ["hoodie", 40],
+  ["shorts", 70],
+  ["underwear", 60],
+]);
+
+store.forEach((value, key) => console.log(`${key} $${value}`));
 
 
-let userName = "Nephyg";
-let userInbox = 5;
 
-login();
+//doing it with normal function my own doing
+// store.forEach(displayStore);
 
-// function login(){
-//   displayUserName();
-//   displayUserInbox();
+// function displayStore(value, key){
+  
+//   return console.log(`${key} $${value}`);
 // }
-// function displayUserName(){
-//   console.log(`welcome ${userName}`)
-// }
-// function displayUserInbox(){
-//   console.log(`You have ${userInbox} new messages`)
-// }
 
-//To next this function so that userName and inbox can only be accesed through login function.
-function login(){
-  displayUserName();
-  displayUserInbox();
+//how to get items from the store Map with get() method
 
-  function displayUserName(){
-    console.log(`welcome ${userName}`)
-  };
+let shoppingCart = 0;
 
-  function displayUserInbox(){
-    console.log(`You have ${userInbox} new messages`)
-  };
-};
+store.get();//to get item from the store map
+store.set();//to add item to the store map
+store.delete()//to delete item from the store map
+store.has(""); // to check if store has an item or not. always returns a boolean value
+store.size; //to check number of item inside the store
+
+
+
+shoppingCart += store.get("socks");
+shoppingCart += store.get("underwear");
+shoppingCart += store.get("shorts");
+console.log(shoppingCart);
+
+//how to use the set() method
+
 
 
