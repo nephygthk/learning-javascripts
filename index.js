@@ -1,24 +1,38 @@
-// How to shuffle the elements of an array by building a small card game
-
-let cards = ["A", "2", "3","4","5","6","7","8","9","10","J","Q","K"];
-
-shuffle(cards);
-
-console.log(cards[0]);
+// nested functions = A function inside of another function.
+//outer function have access to inner function
+//inner functions are hidden from outside the outer function.
+// used in closures (future video topic)
+//it adds some data security
 
 
+let userName = "Nephyg";
+let userInbox = 5;
 
-function shuffle(array){
-  let currentIndex = array.length;
+login();
 
-  while(currentIndex != 0){
-    let randomIndex = Math.floor(Math.random() * array.length)
-    currentIndex -= 1;
+// function login(){
+//   displayUserName();
+//   displayUserInbox();
+// }
+// function displayUserName(){
+//   console.log(`welcome ${userName}`)
+// }
+// function displayUserInbox(){
+//   console.log(`You have ${userInbox} new messages`)
+// }
 
-    let temp = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temp;
-  }
+//To next this function so that userName and inbox can only be accesed through login function.
+function login(){
+  displayUserName();
+  displayUserInbox();
 
-  return array;
-}
+  function displayUserName(){
+    console.log(`welcome ${userName}`)
+  };
+
+  function displayUserInbox(){
+    console.log(`You have ${userInbox} new messages`)
+  };
+};
+
+
