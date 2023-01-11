@@ -1,46 +1,38 @@
-// inheritance: a child class can inherit all the methods and properties from another class.
+// super: when using inheritance, it refers to the pparents class.
+// commonly used to invoke constructor of a parent class. it helps with code reusability
+
+//instead of repeating some constructor properties in all your different classes. create it in parent class and call it with super() in child classes.
 
 class Animal{
-  alive = true
 
-  eat(){
-    console.log(`this ${this.name} is eating`)
-  }
-  sleep(){
-    console.log(`this ${this.name} is sleeping`)
+  constructor(name, age){
+    this.name = name;
+    this.age = age; 
   }
 }
 class Rabbit extends Animal{
-  name = "Rabbit"
-
-  run(){
-    console.log(`this ${this.name} is running`)
+  constructor(name, age, runSpeed){
+    super(name,age);
+    this.runSpeed = runSpeed;
   }
 }
 
 class Fish extends Animal{
-
-  name = "Fish"
-
-  swim(){
-    console.log(`this ${this.name} is swimming`)
+  constructor(name, age, swimSpeed){
+    super(name,age);
+    this.swimSpeed = swimSpeed;
   }
+  
 }
 
 class Hawk extends Animal{
-
-  name = "Hawk"
-
-  fly(){
-    console.log(`this ${this.name} is flying`)
+  constructor(name, age, flySpeed){
+    super(name,age);
+    this.flySpeed = flySpeed;
   }
 }
 
-const rabbit = new Rabbit();
-const fish = new Fish();
-const hawk = new Hawk();
+const fish = new Fish("fish",1,80);
 
-console.log(hawk.alive);
-hawk.eat();
-rabbit.sleep();
-fish.eat();
+console.log(fish.name);
+
