@@ -1,37 +1,46 @@
-// static: belongs to the class not the object
-//       properties: useful for caches, fixed configuration
-//       methods: useful for utility functions
+// inheritance: a child class can inherit all the methods and properties from another class.
 
-// you don't have to instatiate the class to be able to use the static methods or properties.
+class Animal{
+  alive = true
 
-
-//when you use static on a class variable, "this" will noyt work, you have to use the name of that class in place of "this"
-//static means that is the only class name that has access to that method or variable which is called property in class. one place we see static method is within the Math class.
-
-
-
-class Car{
-
-  static numberOfCars = 0;
-
-
-  constructor(model){
-    this.model = model;
-    Car.numberOfCars += 1;
+  eat(){
+    console.log(`this ${this.name} is eating`)
   }
-
-  static startRace(){
-    console.log("3.....2.....1......GO");
+  sleep(){
+    console.log(`this ${this.name} is sleeping`)
   }
 }
-const car1 = new Car("Mercedes");
-const car2 = new Car("Toyota");
-const car3 = new Car("Nissan");
-const car4 = new Car("BMW");
-const car5 = new Car("Infinity");
+class Rabbit extends Animal{
+  name = "Rabbit"
 
+  run(){
+    console.log(`this ${this.name} is running`)
+  }
+}
 
-console.log(Car.numberOfCars);
+class Fish extends Animal{
 
-// car1.startRace();
-Car.startRace();
+  name = "Fish"
+
+  swim(){
+    console.log(`this ${this.name} is swimming`)
+  }
+}
+
+class Hawk extends Animal{
+
+  name = "Hawk"
+
+  fly(){
+    console.log(`this ${this.name} is flying`)
+  }
+}
+
+const rabbit = new Rabbit();
+const fish = new Fish();
+const hawk = new Hawk();
+
+console.log(hawk.alive);
+hawk.eat();
+rabbit.sleep();
+fish.eat();
