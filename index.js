@@ -1,30 +1,19 @@
-//  practice to create a clock that would update every second
+// synchronous code: in an ordered sequence
+//            step by step linear instructions
+//            (start now, finish now)
 
-const myLabel = document.getElementById("myLabel");
 
-update();
-setInterval(update, 1000)
-function update(){
-  let date = new Date();
-  myLabel.innerHTML = formatTime(date);
+// asynchronous code: OUT OF sequence
+//            E.G access a database, fetch a file, tasks that take time
+//            (start now, finish sometime later.)
 
-  function formatTime(date){
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let seconds = date.getSeconds();
-    let pmOrAm = hours >= 12 ? "pm" : "am";
+//synchronous
+console.log("Game started");
+console.log("This is synchronous code");
+console.log("Game end");
 
-    hours = (hours % 12) || 12 ;// converts the hour from 24 to 12 type of hour
 
-    hours = formatZeroes(hours);
-    minutes = formatZeroes(minutes);
-    seconds = formatZeroes(seconds);
-
-    return `${hours}:${minutes}:${seconds} ${pmOrAm}`
-  }
-
-  function formatZeroes(time){
-    time = time.toString();
-    return time.length < 2 ? "0" + time : time; 
-  }
-}
+//asynchronous
+console.log("Game started");
+setTimeout(() => console.log("This is asynchronous code"), 5000)
+console.log("Game end");
