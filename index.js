@@ -1,30 +1,37 @@
-// constructors: it's a special method of a class, it accepts argumemts and assignes properties
+// static: belongs to the class not the object
+//       properties: useful for caches, fixed configuration
+//       methods: useful for utility functions
 
-class Student{
+// you don't have to instatiate the class to be able to use the static methods or properties.
 
-  constructor(name, age, gpa){
-    this.name = name;
-    this.age = age;
-    this.gpa = gpa;
+
+//when you use static on a class variable, "this" will noyt work, you have to use the name of that class in place of "this"
+//static means that is the only class name that has access to that method or variable which is called property in class. one place we see static method is within the Math class.
+
+
+
+class Car{
+
+  static numberOfCars = 0;
+
+
+  constructor(model){
+    this.model = model;
+    Car.numberOfCars += 1;
   }
 
-  study(){
-    console.log(`${this.name} is studying`);
+  static startRace(){
+    console.log("3.....2.....1......GO");
   }
 }
-
-// const student1 = new Student();
-
-// student1.name = "nephyg";
-const student1 = new Student("Nephyg", 25, 3.6);
-const student2 = new Student("Mike", 35, 3.1);
-const student3 = new Student("Zeal", 28, 2.6);
-
-console.log(student1.age);
-console.log(student2.age);
-console.log(student3.age);
+const car1 = new Car("Mercedes");
+const car2 = new Car("Toyota");
+const car3 = new Car("Nissan");
+const car4 = new Car("BMW");
+const car5 = new Car("Infinity");
 
 
-student1.study();
-student2.study();
-student3.study();
+console.log(Car.numberOfCars);
+
+// car1.startRace();
+Car.startRace();
