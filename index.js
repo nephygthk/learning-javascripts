@@ -1,44 +1,73 @@
-//getters and setters.
+//array of objects
 
 
-// get: binds an object property to a function, when that property is accesed. it increases data security and you can add some for objects to the get method.
+// how to pass objects to a function as an argument.
 
-//note you can use the same name of the property as the get name, the best way to do it is to take name and preceed the property name with an undercore
-//this._power. note that doing this will make the property read only and not write at all
-//whenever you see _ before a property name, it means it is protected and shouldn't be messed with or changed.
+//when you are passing an object to a function, the parameter name is kinda like a nick name you are giving it
+
+// class Car{
+
+//   constructor(model, year, color){
+//     this.model = model;
+//     this.year = year;
+//     this.color = color;
+//   }
+// }
+
+// const car1 = new Car("Camry", 2009, "yellow");
+// const car2 = new Car("Nissan", 2015, "black");
+// const car3 = new Car("BMW", 2018, "silver");
+
+// changeColor(car3, "blue");
+// displayInfo(car3);
+
+// function displayInfo(car){
+//   // the display must be the name of the class property
+//   console.log(car.model);
+//   console.log(car.year);
+//   console.log(car.color);
+// }
+
+// function changeColor(car, color){
+//   car.color = color;
+// }
+
+
+// how to create an array of objects in javascript
 
 class Car{
 
-  constructor(power){
-    this._gas = 20;
-    this._power = power;
+  constructor(model, year, color){
+    this.model = model;
+    this.year = year;
+    this.color = color;
   }
 
-  get power(){
-    return `${this._power}hp`;
-  }
-  get gas(){
-    return `${this._gas}L (${this._gas / 50 * 100}%)`;
-  }
-
-  set gas(value){
-    // to make sure users don't enter more value than i expect as maximum or less value that i expected
-    if(value > 50){
-      value = 50;
-    }
-    else if(value < 0){
-      value = 0;
-    }
-    this._gas = value;
+  drive(){
+    console.log(`you are driving the ${this.color} ${this.model}`);
   }
 }
 
-const car1 = new Car(400);
+const car1 = new Car("Camry", 2009, "yellow");
+const car2 = new Car("Nissan", 2015, "black");
+const car3 = new Car("BMW", 2018, "silver");
 
-console.log(car1.power);
-// console.log(car1.gas);
+
+const cars = [car1, car2, car3];
+
+//to acess the object and the properties of this objects
+// console.log(cars[0].model);
+// console.log(cars[1].model);
 
 
-// set: binds an object property to a function when that property is assigned a value. look at set gas function for example.
-car1.gas = -50;
-console.log(car1.gas);
+//to access the method of an object within array
+// cars[2].drive();
+
+//to call the drive method of this class wiith a function and loop
+
+startRace(cars);
+function startRace(cars){
+  for(const car of cars){
+    car.drive();
+  }
+}
