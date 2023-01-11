@@ -1,43 +1,30 @@
-// anonymous object: Object without a name
-//                  not directly reference
-//      less syntax, no need for unique names
+// error handling: object with a description of something that went wrong.
+// can't open a file
+// loose connection
+// user types incorrect inputs
+// type error
 
+// one way to handle error is to put any dangerous code in try and catch which is the same with exception in python.
 
-class Card{
+//we use catch to catch the error or throw with if statement to write the error we want to be printed out
 
-  constructor(value, suit){
-    this.value = value;
-    this.suit = suit;
-  }
+//throw: executes a defined error. mostly used when things goes wrong but doesn't throw an error
+
+//finally: will always execute wether code is successful or not. mostly used to close a file. or do clean up.
+
+try{
+  let x = window.prompt("enter a number");
+  x = Number(x);
+
+  if(isNaN(x)) throw "That wasn't a number";
+
+  if(x == "") throw "You left the input empty, please enter a number";
+
+  console.log(`${x} is a number`);
 }
-
-// let card1 = new Card("A", "hearts");
-// let card2 = new Card("A", "spades");
-// let card3 = new Card("A", "diamond");
-// let card4 = new Card("A", "club");
-// let card5 = new Card("2", "hearts");
-// let card6 = new Card("2", "spades");
-// let card7 = new Card("2", "diamond");
-// let card8 = new Card("2", "club");
-
-// let cards = [card1,card2,card3,card4,card5,card6,card7,card8];
-
-//creating the same array with anonymous objects
-
-
-let cards = [new Card("A", "hearts"),
-            new Card("A", "spades"),
-            new Card("A", "diamond"),
-            new Card("A", "club"),
-            new Card("2", "hearts"),
-            new Card("2", "spades"),
-            new Card("2", "diamond"),
-            new Card("2", "club"), 
-];
-
-// console.log(card1.value + card1.suit);
-console.log(cards[0].value + cards[0].suit);
-
-//to diplay it with a foreach()
-
-cards.forEach(card => console.log(`${card.value}${card.suit}`));
+catch(error){
+  console.log(error)
+}
+finally{
+  console.log("file is closed")
+}
