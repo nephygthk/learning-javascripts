@@ -1,29 +1,19 @@
-// setTimeout: invokes a function after a number of miliseconds, asynchrounous function,(doesn't pause execution). 
+// setInterval: invokes a function repeatadly after a number of miliseconds
+// asynchrounous function, (doesnt pause execution) 
 
-// with setTimoue we pass in a callback, function expression or arrow function expression. it is possible to have multiple set timeout method executing concurrently. to clear your settimeout use clear method
- let item = "Bag";
- let price = 4500;
+//to stop the set interval method we will need a clear interval method. in the clear interval we pass the id of the set interval, we get the id by storing the set interval on a variable.
 
+let count = 0;
+let max = window.prompt("Enter maximum number");
+max = Number(max);
 
-let timer1 = setTimeout(firstMessage, 3000, item, price);
-let timer2 = setTimeout(secondMessage, 6000);
-let timer3 = setTimeout(thirdMessage, 8000);
-//note every setTimeout returns an id.
+let counter1 = setInterval(countUp, 1000);
 
-function firstMessage(item, price){
-  alert(`Buy this great ${item} for $${price}`);
-}
-function secondMessage(){
-  alert(`please buy it cus it's greate`);
-}
-function thirdMessage(){
-  alert(`Buy it now!!`);
-}
-
-
-document.getElementById("myButton").onclick = function(){
-  clearTimeout(timer1);
-  clearTimeout(timer2);
-  clearTimeout(timer3);
-  alert(`Thank you for buying`);
+function countUp(){
+  count += 1;
+  console.log(count);
+  document.getElementById("myLabel").innerHTML = count
+  if(count >= max){
+    clearInterval(counter1);
+  }
 }
