@@ -1,33 +1,50 @@
-// few different ways to select elements in a web page.
+// DOM triversal techniques
 
-// let title = document.getElementById('myTitle');
+//.firstElementChild
+//.lastElementChild
+//.parentElement
+//.nextElementSibling
+//.previousElementSibling
+//.children[]
+//Array.from(.children)
 
-// title.style.backgroundColor = "blue";
 
-// let fruits = document.getElementsByName("fruits"); //this returns a node list, similar to array.
+// let element = document.body;
+// let child = element.lastElementChild;
 
-// fruits.forEach(fruit => {
-//   if(fruit.checked){
-//     console.log(fruit.value);
-//   }
+// child.style.backgroundColor = "blue";
+
+// let element = document.querySelector("#vegetables");
+// let parent = element.parentElement;
+
+// parent.style.backgroundColor = "blue";
+
+// let element = document.querySelector("#vegetables");
+// let sibling = element.previousElementSibling;
+
+// sibling.style.backgroundColor = "blue";
+
+
+//to acees children through index
+// let element = document.querySelector("#fruits");
+// let child = element.children[2];
+
+// child.style.backgroundColor = "blue";
+
+// to acces the whole children at once
+let element = document.querySelector("#fruits");
+let children = Array.from(element.children);
+
+// children.forEach(child => {
+//   child.style.backgroundColor = "blue";
 // })
 
-// let soupIngredient = document.getElementsByTagName("li");
-
-// soupIngredient[3].style.backgroundColor = "blue";
-
-// let desserts = document.getElementsByClassName("desserts");
-// desserts[2].style.backgroundColor = "blue";
+for(let child of children){
+  child.style.backgroundColor = "red";
+}
 
 
-//with queryselector you pass a name, id , classname or an attribute. you use # for id, . for classname, [for] for attributes like for in label
-
-// let element = document.querySelector("#myTitle"); // it selects the first elemnt of the group, if you need to select all you use querySelctorAll()
-// elements.style.backgroundColor = "yellow";
-
-let elements = document.querySelectorAll("[for]");
-elements.forEach(element => {
-  element.style.backgroundColor = "blue";
-})
-
+// for(let i = 0; i >= children.length; i++){
+//   console.log(i);
+// }
 
