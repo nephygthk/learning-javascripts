@@ -1,10 +1,51 @@
-// how to change css properties of element
+//events: is some actions that the user or the browswer does.
+// onclick
+//onload
+// onchange
+//onmouseover
+//onmouseout
+//onmousedown
 
-const title = document.getElementById("myTitle");
+//onclick
+// const elememt = document.querySelector("#myButton").onclick = doSomething; //be sure not to add () on the function callback
 
-title.style.backgroundColor= "#222"; // you can use color words, rgb or hex code  eg 3777887 here.
-title.style.color = "rgb(150,200,50)";
-title.style.fontFamily = "consolas";
-title.style.textAlign = "center";
-title.style.border = "2px solid";
-title.style.display = "block";// use block to display and none to hide
+
+// //onload
+// const elememt1 = document.body.onload = doSomething;
+
+//onchange
+// const element = document.getElementById("myText").onchange = doSomething;
+
+//onmouseover
+const element = document.getElementById("myDiv");
+// element.onmouseover = changeColor;
+
+//onmouseout
+// element.onmouseout = changeColorBack;
+
+//onmousedown
+element.onmousedown = changeColor;
+
+//onmouseup
+element.onmouseup = changeColorBack;
+
+
+function doSomething(){
+  alert("you did something");
+};
+
+function changeColor(){
+  element.style.backgroundColor = "red";
+  element.style.width = "150px"
+  element.style.height = "150px"
+  element.style.borderRadius = "50%"
+};
+
+function changeColorBack(){
+  element.style.backgroundColor = "green";
+  element.style.width = "100px"
+  element.style.height = "100px"
+  element.style.borderRadius = "0%"
+};
+
+

@@ -1,5 +1,9 @@
-#count-label{
-  display: block;
-  text-align: center;
-  font-size: 50px;
+#myDiv{
+  background-color: green;
+  width: 100px;
+  height: 100px;
 }
+
+/* #myButton{
+  background-color: blue;
+} */
