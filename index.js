@@ -1,23 +1,10 @@
-// add/ change html element
+// how to change css properties of element
 
-// to ways to change html content is eaither with innerHTML or .textContent
+const title = document.getElementById("myTitle");
 
-//innerHTML (vulnerable to xss attack)
-//textContent (more secured) it's better to use this
-
-// const nameTag = document.createElement("h1"); //this is how to create html tag with javascript
-
-// nameTag.innerHTML = "Nephyg";
-// document.body.append(nameTag);
-
-// const nameTag = document.createElement("h1");
-// nameTag.textContent = window.prompt("Enter your name");
-// document.body.append(nameTag);
-
-let listItem = document.querySelector("#fruits");
-const nameTag = document.createElement("li");
-nameTag.textContent = "Cashew"
-// listItem.append(nameTag); // you can use prepend to make you append be the first on the list.
-// listItem.prepend(nameTag);// to add to first on the list
-
-listItem.insertBefore(nameTag, listItem.getElementsByTagName("li")[2])// this inserts before the  index element choosen
+title.style.backgroundColor= "#222"; // you can use color words, rgb or hex code  eg 3777887 here.
+title.style.color = "rgb(150,200,50)";
+title.style.fontFamily = "consolas";
+title.style.textAlign = "center";
+title.style.border = "2px solid";
+title.style.display = "block";// use block to display and none to hide
