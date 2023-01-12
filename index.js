@@ -1,51 +1,36 @@
-//events: is some actions that the user or the browswer does.
-// onclick
-//onload
-// onchange
-//onmouseover
-//onmouseout
-//onmousedown
+//add event listener(event, function, useCapture).
+//you can add many event handler to one elements
+//even the same events that invokes different functions
+//it is the prefered way of handling events.
 
-//onclick
-// const elememt = document.querySelector("#myButton").onclick = doSomething; //be sure not to add () on the function callback
+//usecapture handles wich invent will happen first if two elements are taking the same eventlistener function.
 
+// const innerDiv = document.getElementById("innerDiv");
 
-// //onload
-// const elememt1 = document.body.onload = doSomething;
+// innerDiv.addEventListener("mouseover", changeColor);// you don't add "on" when using the event action inside add event listener
 
-//onchange
-// const element = document.getElementById("myText").onchange = doSomething;
+// innerDiv.addEventListener("mouseout", changeColorBack);
 
-//onmouseover
-const element = document.getElementById("myDiv");
-// element.onmouseover = changeColor;
+// function changeColor(){
+//   innerDiv.style.backgroundColor = "red";
+// }
 
-//onmouseout
-// element.onmouseout = changeColorBack;
-
-//onmousedown
-element.onmousedown = changeColor;
-
-//onmouseup
-element.onmouseup = changeColorBack;
+// function changeColorBack(){
+//   innerDiv.style.backgroundColor = "lightgreen";
+// }
 
 
-function doSomething(){
-  alert("you did something");
-};
+const innerDiv = document.getElementById("innerDiv");
+const outerDiv = document.getElementById("outerDiv");
+
+innerDiv.addEventListener("click", changeColor);
+outerDiv.addEventListener("click", changeColor, true);
 
 function changeColor(){
-  element.style.backgroundColor = "red";
-  element.style.width = "150px"
-  element.style.height = "150px"
-  element.style.borderRadius = "50%"
-};
+  alert(this.id);
+  this.style.backgroundColor = "blue";
+}
 
 function changeColorBack(){
-  element.style.backgroundColor = "green";
-  element.style.width = "100px"
-  element.style.height = "100px"
-  element.style.borderRadius = "0%"
-};
-
-
+  innerDiv.style.backgroundColor = "lightgreen";
+}
