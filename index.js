@@ -1,50 +1,23 @@
-// DOM triversal techniques
+// add/ change html element
 
-//.firstElementChild
-//.lastElementChild
-//.parentElement
-//.nextElementSibling
-//.previousElementSibling
-//.children[]
-//Array.from(.children)
+// to ways to change html content is eaither with innerHTML or .textContent
 
+//innerHTML (vulnerable to xss attack)
+//textContent (more secured) it's better to use this
 
-// let element = document.body;
-// let child = element.lastElementChild;
+// const nameTag = document.createElement("h1"); //this is how to create html tag with javascript
 
-// child.style.backgroundColor = "blue";
+// nameTag.innerHTML = "Nephyg";
+// document.body.append(nameTag);
 
-// let element = document.querySelector("#vegetables");
-// let parent = element.parentElement;
+// const nameTag = document.createElement("h1");
+// nameTag.textContent = window.prompt("Enter your name");
+// document.body.append(nameTag);
 
-// parent.style.backgroundColor = "blue";
+let listItem = document.querySelector("#fruits");
+const nameTag = document.createElement("li");
+nameTag.textContent = "Cashew"
+// listItem.append(nameTag); // you can use prepend to make you append be the first on the list.
+// listItem.prepend(nameTag);// to add to first on the list
 
-// let element = document.querySelector("#vegetables");
-// let sibling = element.previousElementSibling;
-
-// sibling.style.backgroundColor = "blue";
-
-
-//to acees children through index
-// let element = document.querySelector("#fruits");
-// let child = element.children[2];
-
-// child.style.backgroundColor = "blue";
-
-// to acces the whole children at once
-let element = document.querySelector("#fruits");
-let children = Array.from(element.children);
-
-// children.forEach(child => {
-//   child.style.backgroundColor = "blue";
-// })
-
-for(let child of children){
-  child.style.backgroundColor = "red";
-}
-
-
-// for(let i = 0; i >= children.length; i++){
-//   console.log(i);
-// }
-
+listItem.insertBefore(nameTag, listItem.getElementsByTagName("li")[2])// this inserts before the  index element choosen
