@@ -1,18 +1,48 @@
-// console.time(): starts a timer you can use to trach how long an operation takes.
-// give each timer a unique name. it doesn't wait around for asychronous task.
+// Promise: Object that encapsulates the result of an asynchronous operations. it lets asynchronous methods return values like synchronous method.
+
+//I promise to return something in the future.
+
+// promises has a state, they are pending "then": they are fulfilled. or rejected.
+//the result is what can be returned
+//two parts, producing and consuming
 
 
-//start
-console.time("Response Time");
+//you use then to consume and catch to get the error in else statemtnet
 
-// alert("click button");
-// console.log(addNumber(5,7));
+// const promise = new Promise((resolve, reject) => {
+//   let fileLoaded = true;
+//   if(fileLoaded){
+//     resolve("File is resolved");
+//   }
+//   else{
+//     reject("file is rejected");
+//   }
 
-// function addNumber(x,y){
-//   return x + y;
-// }
+// }); //within the bracket you can put callback, function expression or arrow function expression.
 
-setTimeout(() => console.log("hello"), 3000);// to show it odesnt wait for asynchronous task
+// //consumer
 
-//end
-console.timeEnd("Response Time")
+// promise.then((value) => console.log(value))
+//       .catch(error => console.log(error));
+
+
+
+//another example
+
+// const promise = new Promise(resolve => {
+//   setTimeout(resolve, 5000);
+// });
+
+// //consume. it's not a must to return a value
+// promise.then(() => console.log("file resolve completed"));
+
+
+//another way of doing it with asigning arguments
+
+const wait = (time) => new Promise(resolve => {
+  setTimeout(resolve, time);
+});
+
+//consume. it's not a must to return a value
+wait(3000).then(() => console.log("file resolve completed"));
+
