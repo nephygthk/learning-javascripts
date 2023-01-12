@@ -1,19 +1,18 @@
-// synchronous code: in an ordered sequence
-//            step by step linear instructions
-//            (start now, finish now)
+// console.time(): starts a timer you can use to trach how long an operation takes.
+// give each timer a unique name. it doesn't wait around for asychronous task.
 
 
-// asynchronous code: OUT OF sequence
-//            E.G access a database, fetch a file, tasks that take time
-//            (start now, finish sometime later.)
+//start
+console.time("Response Time");
 
-//synchronous
-console.log("Game started");
-console.log("This is synchronous code");
-console.log("Game end");
+// alert("click button");
+// console.log(addNumber(5,7));
 
+// function addNumber(x,y){
+//   return x + y;
+// }
 
-//asynchronous
-console.log("Game started");
-setTimeout(() => console.log("This is asynchronous code"), 5000)
-console.log("Game end");
+setTimeout(() => console.log("hello"), 3000);// to show it odesnt wait for asynchronous task
+
+//end
+console.timeEnd("Response Time")
