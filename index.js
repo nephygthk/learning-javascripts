@@ -1,13 +1,4 @@
-// Promise: Object that encapsulates the result of an asynchronous operations. it lets asynchronous methods return values like synchronous method.
-
-//I promise to return something in the future.
-
-// promises has a state, they are pending "then": they are fulfilled. or rejected.
-//the result is what can be returned
-//two parts, producing and consuming
-
-
-//you use then to consume and catch to get the error in else statemtnet
+// async: makes a function return a promise. when using async, there is no need to use resolve or rejected. if async is successful you will return something or it fails you use the throw keyword to throw an error 
 
 // const promise = new Promise((resolve, reject) => {
 //   let fileLoaded = true;
@@ -18,31 +9,43 @@
 //     reject("file is rejected");
 //   }
 
-// }); //within the bracket you can put callback, function expression or arrow function expression.
-
-// //consumer
+// }); 
 
 // promise.then((value) => console.log(value))
 //       .catch(error => console.log(error));
 
+// doing this with async function. async replaces evrything about promise in the function.
+
+async function loadFile(){
+  let fileLoaded = false;
+  if(fileLoaded){
+    return "File is loaded";
+  }
+  else{
+    throw "file loading failed";
+  }
+};
+
+loadFile().then((value) => console.log(value))
+      .catch(error => console.log(error));
 
 
-//another example
 
-// const promise = new Promise(resolve => {
-//   setTimeout(resolve, 5000);
-// });
+// another way without using async
 
-// //consume. it's not a must to return a value
-// promise.then(() => console.log("file resolve completed"));
+// function loadFile(){
+//   let fileLoaded = false;
+//   if(fileLoaded){
+//     return Promise.resolve("File is loaded");
+//   }
+//   else{
+//     return Promise.reject("file loading failed");
+//   }
+// };
+
+// loadFile().then((value) => console.log(value))
+//       .catch(error => console.log(error));
 
 
-//another way of doing it with asigning arguments
 
-const wait = (time) => new Promise(resolve => {
-  setTimeout(resolve, time);
-});
-
-//consume. it's not a must to return a value
-wait(3000).then(() => console.log("file resolve completed"));
 
