@@ -1,36 +1,18 @@
-//add event listener(event, function, useCapture).
-//you can add many event handler to one elements
-//even the same events that invokes different functions
-//it is the prefered way of handling events.
+// how to show and hide html element
 
-//usecapture handles wich invent will happen first if two elements are taking the same eventlistener function.
+const myButton = document.querySelector("#myButton");
 
-// const innerDiv = document.getElementById("innerDiv");
+const myImage = document.querySelector("#myImage");
 
-// innerDiv.addEventListener("mouseover", changeColor);// you don't add "on" when using the event action inside add event listener
+myButton.addEventListener("click", () => {
+  if(myImage.style.visibility == "hidden"){
+    myImage.style.visibility = "visible"
+  }
+  else{
+    myImage.style.visibility = "hidden";
+  }
+})
 
-// innerDiv.addEventListener("mouseout", changeColorBack);
+//if you want to reserve the space of the image, you use visibility instead of display.
 
-// function changeColor(){
-//   innerDiv.style.backgroundColor = "red";
-// }
-
-// function changeColorBack(){
-//   innerDiv.style.backgroundColor = "lightgreen";
-// }
-
-
-const innerDiv = document.getElementById("innerDiv");
-const outerDiv = document.getElementById("outerDiv");
-
-innerDiv.addEventListener("click", changeColor);
-outerDiv.addEventListener("click", changeColor, true);
-
-function changeColor(){
-  alert(this.id);
-  this.style.backgroundColor = "blue";
-}
-
-function changeColorBack(){
-  innerDiv.style.backgroundColor = "lightgreen";
-}
+//when you put display of the property none, the button will need to be clicked trwice before it will toggle at the fist time of refreshing the page/. but to solve that, the first way is to add the display style inline, inside the tag.
