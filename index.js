@@ -1,18 +1,31 @@
-// how to show and hide html element
+//how to dictate key presses:
 
-const myButton = document.querySelector("#myButton");
+//keydoown is even listening property like click.
+const myDiv = document.getElementById("myDiv");
+window.addEventListener('keydown', move);
 
-const myImage = document.querySelector("#myImage");
+let x = 0;
+let y = 0;
 
-myButton.addEventListener("click", () => {
-  if(myImage.style.visibility == "hidden"){
-    myImage.style.visibility = "visible"
+function move (event){
+  switch(event.key){
+    case "ArrowDown":
+      y+=5;
+      myDiv.style.top = y + "px";
+      break
+    case "ArrowUp":
+      y-=5;
+      myDiv.style.top = y + "px";
+      break
+    case "ArrowRight":
+      x+=5;
+      myDiv.style.left = x + "px";
+      break
+    case "ArrowLeft":
+      x-=5;
+      myDiv.style.left = x + "px";
+      break
+    default:
+      break
   }
-  else{
-    myImage.style.visibility = "hidden";
-  }
-})
-
-//if you want to reserve the space of the image, you use visibility instead of display.
-
-//when you put display of the property none, the button will need to be clicked trwice before it will toggle at the fist time of refreshing the page/. but to solve that, the first way is to add the display style inline, inside the tag.
+}
