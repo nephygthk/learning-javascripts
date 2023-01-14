@@ -1,79 +1,82 @@
-// creating few simple animations using javascript.
-
-const myButton = document.getElementById("myButton");
-const myAnimation = document.getElementById("myDiv");
-
-myButton.addEventListener("click", begin);
+//Canvas API: a means for drawing graphics
+//    used for animations, games and data visualization.
 
 
-// function begin(){
-//   let timerId = null;
-//   let x = 0;
-//   let y = 0;
+let canvas = document.getElementById("myCanvas");
 
-//   timerId = setInterval(frame, 5)
-//   function frame(){
-//     if( x >=200 ){
-//       // myAnimation.style.display = "none";
-//       clearInterval(timerId);
-//     }
-//     else{
-//       x+=1;
-//       y+=1;
-//       myAnimation.style.left = x + "px";
-//       myAnimation.style.top = y + "px";
-//     }
-//   }
-// }
-
-
-function begin(){
-  let timerId = null;
-  let degres = 0;
-  let x = 0;
-  let y = 0;
-
-  timerId = setInterval(frame, 5)
-
-
-  function frame(){
-    if( x >= 300 || y >= 300){
-
-      clearInterval(timerId);
-    }
-    else{
-      degres+=4;
-      x+=1;
-      y+=1;
-
-      myAnimation.style.left = x + "px";
-      myAnimation.style.top = y + "px"
-      myAnimation.style.transform = "rotateZ("+degres+"deg)";
-
-    }
-  }
-}
+// let context = canvas.getContext("2d");
+let pattern = canvas.getContext("2d");
 
 
 
-// function begin(){
-//   let timerId = null;
-//   let scaleX = 1;
-//   let scaleY = 1;
+//to draw triangle
+// pattern.strokeStyle = "yellow";
+// pattern.fillStyle = "purple";
+// pattern.lineWidth = 8;
+// pattern.beginPath();
+// pattern.moveTo(100,0);
+// pattern.lineTo(0,100);
+// pattern.lineTo(200,100);
+// pattern.lineTo(100,0);
+// pattern.stroke();
+// pattern.fill();
 
-//   timerId = setInterval(frame, 10)
+
+//how to draw lines in canvas
+// context.strokeStyle = "red";
+// context.lineWidth = 5;
+/*context.beginPath();
+context.moveTo(0,0);
+context.lineTo(100,100);
+context.lineTo(100,200);
+context.moveTo(200,0);
+context.lineTo(100,100);
+context.stroke();*/
+
+//to draw rectangles
+// pattern.strokeReact(corner, corner, width,height)
+// pattern.fillStyle = "black";
+// pattern.fillRect(0, 0, 100,100);
+// pattern.strokeStyle = "black";
+// pattern.strokeRect(0, 0, 100,100);
+
+// pattern.fillStyle = "red";
+// pattern.fillRect(0, 100, 100,100);
+// pattern.strokeStyle = "black";
+// pattern.strokeRect(0, 100, 100,100);
+
+// pattern.fillStyle = "green";
+// pattern.fillRect(100, 0, 100,100);
+// pattern.strokeStyle = "black";
+// pattern.strokeRect(100, 0, 100,100);
+
+// pattern.fillStyle = "yellow";
+// pattern.fillRect(100, 100, 100,100);
+// pattern.strokeStyle = "black";
+// pattern.strokeRect(100, 100, 100,100);
 
 
-//   function frame(){
-//     if( scaleX >= 3 || scaleY >= 3 ){
+//to draw a circle
+// arc(x,y,r, sangle, eangle, counterclockwise)
+// arc(corner, corner,radius, startingangle, endingangle, counterclockwise)
 
-//       clearInterval(timerId);
-//     }
-//     else{
-//       scaleX+=0.1;
-//       scaleY+=0.1;
-//       myAnimation.style.transform = "scale("+scaleX+", "+scaleY+")";
+// pattern.beginPath();
+// // pattern.arc(100, 100, 50, 1, 2 * Math.PI, true);
+// pattern.fillStyle = "lightgreen";
+// pattern.lineWidth = 5;
+// pattern.strokeStyle = "darkgreen"
+// pattern.arc(100, 100, 50, 0, 2 * Math.PI);
+// pattern.stroke();
+// pattern.fill();
 
-//     }
-//   }
-// }
+
+//draw text
+
+//pattern.fillText(text string, corner,corner);
+//pattern.font = "fontsize fontfamily"
+pattern.font = "20px MV boli";
+pattern.fillStyle = "grey";
+pattern.textAlign = "center";
+// pattern.fillText("You Win!! ", 50, 50);
+pattern.fillText("You Win!! ", canvas.width / 2, canvas.width / 2);// to center a text, after this set the textalignment
+
