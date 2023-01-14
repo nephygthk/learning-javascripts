@@ -1,3 +1,5 @@
-#myCanvas{
-  border: 1px solid rgb(236, 7, 7);
+#myDiv{
+  width: 1000px;
+  height: 1000px;
+  border: 2px solid blue;
 }
