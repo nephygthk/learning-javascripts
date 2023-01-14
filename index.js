@@ -1,57 +1,62 @@
-// cookie: a small text file stored on your computer. used to remember information about the user.  saved in name= value pairs
+// building an interactive stop watch in javascript
 
-// console.log(navigator.cookieEnabled);// to check if cookie is anbled in your compueter
+const timeDisplay = document.querySelector("#timeDisplay");
+const startBtn = document.querySelector("#startBtn");
+const pauseBtn = document.querySelector("#pauseBtn");
+const resetBtn = document.querySelector("#resetBtn");
 
-// document.cookie = "firstName=smigo; expires=Sun, 1 january 2030 12:00:00 UTC; path=/" ;
-// document.cookie = "lastName=mike; expires=Sun, 1 january 2020 12:00:00 UTC; path=/" ;
+let startTime = 0;
+let elapsedTime = 0;
+let currentTime = 0;
+let intervalId = 0;
+let paused = true;
+let hrs = 0;
+let mins =0;
+let secs = 0;
 
+startBtn.addEventListener("click", () => {
+  if(paused){
+    paused = false
+    startTime = Date.now() - elapsedTime;
+    intervalId = setInterval(updateTime, 1000);
+  }
+});
+pauseBtn.addEventListener("click", () => {
+  if(!paused){
+    paused = true;
+    elapsedTime = Date.now() - startTime;
+    clearInterval(intervalId);
+  }
+});
+resetBtn.addEventListener("click", () => {
+  paused = true;
+  clearInterval(intervalId);
+  startTime = 0;
+  elapsedTime = 0;
+  currentTime = 0;
+  intervalId = 0;
+  paused = true;
+  hrs = 0;
+  mins =0;
+  secs = 0;
+  timeDisplay.textContent = "00:00:00"
 
-// setCookie("email", "smigo@gmail.com", 180);
-// deleteCookie("email");
-// deleteCookie("firstName");
-// console.log(document.cookie);
+});
 
-// setCookie("email", "smigo@gmail.com", 356);
-// setCookie("firstName", "Smigo", 180);
+function updateTime(){
+  elapsedTime = Date.now() - startTime;
 
-// console.log(getCookie("firstName"));
+  secs = Math.floor((elapsedTime / 1000) % 60);
+  mins = Math.floor((elapsedTime / (1000 * 60)) % 60);
+  hrs = Math.floor((elapsedTime / (1000 * 60 * 60)) % 60);
 
+  secs = pad(secs);
+  mins = pad(mins);
+  hrs = pad(hrs);
 
-const firstText = document.querySelector("#firstText");
-const lastText = document.querySelector("#lastText");
-const submitBtn = document.querySelector("#submitBtn");
-const cookieBtn = document.querySelector("#cookieBtn");
+  timeDisplay.textContent = `${hrs}:${mins}:${secs}`;
 
-submitBtn.addEventListener("click", () =>{
-  setCookie("firstName", firstText.value, 365);
-  setCookie("lastName", lastText.value, 365);
-})
-cookieBtn.addEventListener("click", () =>{
-  firstText.value = getCookie("firstName");
-  lastText.value = getCookie("lastName");
-})
-
-
-function setCookie(name,value, daysToLive){
-  let date = new Date();
-  date.setTime(date.getTime() + (daysToLive * 24 * 60 * 60 * 100));
-  let expires = "expires=" + date.toUTCString();
-  document.cookie = `${name}=${value}; ${expires}; path=/`;
-}
-
-function deleteCookie(name){
-  setCookie(name, null, null);
-}
-
-function getCookie(name){
-  const cDecoded = decodeURIComponent(document.cookie);
-  const cArray = cDecoded.split("; ");
-  let result = null;
-  
-  cArray.forEach(element => {
-    if(element.indexOf(name) == 0){
-      result = element.substring(name.length + 1);
-    }   
-  })
-  return result;
-}
+  function pad(unit){
+    return (("0") + unit).length > 2 ? unit : "0"+unit;
+  }
+};
