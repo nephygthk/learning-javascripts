@@ -1,62 +1,49 @@
-// building an interactive stop watch in javascript
+// create a game of rock paper scissors
 
-const timeDisplay = document.querySelector("#timeDisplay");
-const startBtn = document.querySelector("#startBtn");
-const pauseBtn = document.querySelector("#pauseBtn");
-const resetBtn = document.querySelector("#resetBtn");
+const playerText = document.querySelector("#playerText");
+const computerText = document.querySelector("#computerText");
+const resultText = document.querySelector("#resultText");
+const gameBtns= document.querySelectorAll(".gameBtn");
 
-let startTime = 0;
-let elapsedTime = 0;
-let currentTime = 0;
-let intervalId = 0;
-let paused = true;
-let hrs = 0;
-let mins =0;
-let secs = 0;
+let player;
+let computer;
+let result;
 
-startBtn.addEventListener("click", () => {
-  if(paused){
-    paused = false
-    startTime = Date.now() - elapsedTime;
-    intervalId = setInterval(updateTime, 1000);
+gameBtns.forEach(button => addEventListener("click", () => {
+  player = button.textContent;
+  computerTurn();
+  playerText.textContent = `Player: ${player}`;
+  computerText.textContent = `Computer: ${computer}`;
+  resultText.textContent = checkWinner();
+}));
+
+function computerTurn(){
+  const randNum = Math.floor(Math.random() * 3 + 1);
+
+  switch(randNum){
+    case 1:
+      computer = "Rock";
+      break
+    case 2:
+      computer = "Paper";
+      break
+    case 3:
+      computer = "Scissors";
+      break
   }
-});
-pauseBtn.addEventListener("click", () => {
-  if(!paused){
-    paused = true;
-    elapsedTime = Date.now() - startTime;
-    clearInterval(intervalId);
+}
+
+function checkWinner(){
+  if(computer == player){
+    return "Draw!";
   }
-});
-resetBtn.addEventListener("click", () => {
-  paused = true;
-  clearInterval(intervalId);
-  startTime = 0;
-  elapsedTime = 0;
-  currentTime = 0;
-  intervalId = 0;
-  paused = true;
-  hrs = 0;
-  mins =0;
-  secs = 0;
-  timeDisplay.textContent = "00:00:00"
-
-});
-
-function updateTime(){
-  elapsedTime = Date.now() - startTime;
-
-  secs = Math.floor((elapsedTime / 1000) % 60);
-  mins = Math.floor((elapsedTime / (1000 * 60)) % 60);
-  hrs = Math.floor((elapsedTime / (1000 * 60 * 60)) % 60);
-
-  secs = pad(secs);
-  mins = pad(mins);
-  hrs = pad(hrs);
-
-  timeDisplay.textContent = `${hrs}:${mins}:${secs}`;
-
-  function pad(unit){
-    return (("0") + unit).length > 2 ? unit : "0"+unit;
+  else if(computer == "Rock"){
+    return (player == "Paper") ? "You win! " : "You Loose!";
   }
-};
+  else if(computer == "Paper"){
+    return (player == "Scissors") ? "You win! " : "You Loose!";
+  }
+  else if(computer == "Scissors"){
+    return (player == "Rock") ? "You win! " : "You Loose!";
+  }
+}

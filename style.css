@@ -1,23 +1,26 @@
-.timerBtn{
-  width: 80px;
-  height: 30px;
-  border: 3px solid;
+.gameBtn{
+  line-height: 30px;
+  width: 100px;
   border-radius: 12px;
-  background-color: #333333;
-  color: #fff;
-  font-family: consolas, monospace;
+  border-color: rgb(175, 207, 235);
+  font-weight: bold;
 }
 
-#timeDisplay{
-  font-size: 75px;
-  color: #40c437;
-  font-family: consolas, monospace;
-}
-
-#timeContainer{
-  text-align: center;
-  border: 6px solid;
+#gameDiv{
+  font-family:  cursive;
+  border: 3px solid;
   border-radius: 25px;
-  background-color: #222222;
-  margin: 0px 40px;
+  background-color: grey;
+  padding: 10px;
+  text-align: center;
+}
+
+#playerText{
+  color: blue;
+}
+#computerText{
+  color: red;
+}
+#resultText{
+  color: rgb(209, 231, 6);
 }
