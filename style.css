@@ -1,26 +1,22 @@
-.gameBtn{
-  line-height: 30px;
-  width: 100px;
-  border-radius: 12px;
-  border-color: rgb(175, 207, 235);
-  font-weight: bold;
-}
-
-#gameDiv{
-  font-family:  cursive;
-  border: 3px solid;
-  border-radius: 25px;
-  background-color: grey;
-  padding: 10px;
+.cell{
+  width: 75px;
+  height: 75px;
+  border: 2px solid;
+  box-shadow: 0 0 0 2px;
+  line-height: 75px;
+  font-size: 50px;
+  cursor: pointer;
   text-align: center;
 }
 
-#playerText{
-  color: blue;
+#cellContainer{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 200px;
+  margin: auto;
 }
-#computerText{
-  color: red;
-}
-#resultText{
-  color: rgb(209, 231, 6);
+
+#gameContainer{
+  font-family: "Permanent Marker",  cursive;
+  text-align: center;
 }

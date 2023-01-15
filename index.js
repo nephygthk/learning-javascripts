@@ -1,49 +1,84 @@
-// create a game of rock paper scissors
+// creating a tic tac toe game in javascript
 
-const playerText = document.querySelector("#playerText");
-const computerText = document.querySelector("#computerText");
-const resultText = document.querySelector("#resultText");
-const gameBtns= document.querySelectorAll(".gameBtn");
 
-let player;
-let computer;
-let result;
+const cells = document.querySelectorAll(".cell");
+const statusText = document.querySelector("#statusText");
+const restartBtn = document.querySelector("#restartBtn");
+const winConditions = [
+  [0,1,2],
+  [3,4,5],
+  [6,7,8],
+  [0,3,6],
+  [1,4,7],
+  [2,5,8],
+  [0,4,8],
+  [2,4,6]
+];
 
-gameBtns.forEach(button => addEventListener("click", () => {
-  player = button.textContent;
-  computerTurn();
-  playerText.textContent = `Player: ${player}`;
-  computerText.textContent = `Computer: ${computer}`;
-  resultText.textContent = checkWinner();
-}));
+let options = ["","","","","","","","",""];
+let currentPlayer = "X";
+let running = false;
 
-function computerTurn(){
-  const randNum = Math.floor(Math.random() * 3 + 1);
 
-  switch(randNum){
-    case 1:
-      computer = "Rock";
-      break
-    case 2:
-      computer = "Paper";
-      break
-    case 3:
-      computer = "Scissors";
-      break
-  }
+
+initializeGame();
+function initializeGame(){
+  cells.forEach(cell => cell.addEventListener("click", cellClicked));
+  restartBtn.addEventListener("click", restartGame);
+  statusText.textContent = `${currentPlayer}'s turn`;
+  running = true;
 }
-
+function cellClicked(){
+  const cellIndex = this.getAttribute("cellIndex");
+  if(options[cellIndex] != "" || !running){
+    return;
+  }
+  updateCell(this, cellIndex);
+  checkWinner();
+}
+function updateCell(cell, index){
+  options[index] = currentPlayer;
+  cell.textContent = currentPlayer;
+}
+function changePlayer(){
+  currentPlayer = (currentPlayer == "X") ? "O" : "X";
+  statusText.textContent = `${currentPlayer},s turn`;
+}
 function checkWinner(){
-  if(computer == player){
-    return "Draw!";
+  let roundWon = false;
+  
+  for(let i = 0; i < winConditions.length; i++){
+    const condition = winConditions[i];
+    const cellA = options[condition[0]];
+    const cellB = options[condition[1]];
+    const cellC = options[condition[2]];
+
+    if(cellA == "" || cellB == "" || cellC == ""){
+      continue;
+    }
+    else if(cellA == cellB && cellB == cellC){
+      roundWon = true;
+      break;
+    }
   }
-  else if(computer == "Rock"){
-    return (player == "Paper") ? "You win! " : "You Loose!";
+  if(roundWon){
+    statusText.textContent = `${currentPlayer} wins!`;
+    running = false
   }
-  else if(computer == "Paper"){
-    return (player == "Scissors") ? "You win! " : "You Loose!";
+  else if(!options.includes("")){
+    statusText.textContent = `Draw!`;
+    running = false;
   }
-  else if(computer == "Scissors"){
-    return (player == "Rock") ? "You win! " : "You Loose!";
+  else{
+    changePlayer();
   }
 }
+function restartGame(){
+  currentPlayer = "X";
+  options = ["","","","","","","","",""];
+  statusText.textContent = `${currentPlayer}'s turn`;
+  cells.forEach(cell => cell.textContent = "");
+  running = true;
+
+} 
+// restartBtn.addEventListener("click",restartGame );
